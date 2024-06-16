@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Film Fairy</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>Film Fairy</h1>
+        </nav>
+        <div class="searchbar">
+            <div class="box">
+                <form action="/api/search" method="get" id="searchForm">
+                    <input type="text" id="search" name="movieName" placeholder="Search any movie..." required>
+                    <button type="submit" id="button">SEARCH</button>
+                </form>
+            </div>
+    </header>
+    <main>
+
+        <div class="displaying">
+            {{#if movies.length}}
+            {{#each movies}}
+            <div class="movie">
+                <h1>{{original_title}}</h1>
+                <img src="https://image.tmdb.org/t/p/w185/{{poster_path}}" alt="{{original_title}} Poster">
+            </div>
+            {{/each}}
+            {{else}}
+            <p>No movies found</p>
+            {{/if}}
+        </div>
+    </main>
+
+    <script src="../frontend.js"></script>
+</body>
+
+</html>
